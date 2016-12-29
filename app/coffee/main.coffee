@@ -28,6 +28,7 @@ class Download
     # If it's linux, change some of the view specifics
     if @os == "linux"
       @$node.addClass 'is-linux'
+      @onDownloadCb 'linux', 'default'
     @$node.css opacity:0
     @$node.delay(100).animate {opacity:1}, duration:400
 

@@ -1,0 +1,24 @@
+{
+  "name": "download",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "*",
+    "velocity": "~1.1.0",
+    "shadow-icons": "tolmark12/shadow-icons-js",
+    "lexi": "nanobox-io/lexi"
+  },
+  "ignore": [
+    "app",
+    "bower_components",
+    "node_modules",
+    "server",
+    "stage",
+    ".gitignore",
+    "gulpfile.*",
+    "package.json",
+    "**/.*"
+  ],
+  "devDependencies": {
+    "jade": "~1.6.0"
+  }
+}

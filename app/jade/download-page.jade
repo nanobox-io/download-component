@@ -1,0 +1,36 @@
+.download-cli.docker
+
+  .download-left
+    .download-kinds.lexi
+      .kind(data-kind="docker")
+        input(value="docker" type="radio" name="downloads" checked='true')
+        .info
+          .title Use Docker Native
+          .blurb Requires you to install <br/><a href="https://www.docker.com/products/docker" target="_blank"> Docker Native</a>
+      .kind(data-kind="virtualBox")
+        input(value="vBox" type="radio" name="downloads")
+        .info
+          .title Use Virtual Box
+          .blurb Only install Nanobox, we install Virtual Box automatically
+    .os-menu
+      .os.apple(data-id="apple") Mac
+      .os.windows(data-id="windows") Windows
+      .os.linux(data-id="linux") Linux
+  
+  .download-right
+    .icon
+      img.shadow-icon(data-src="blok")
+      .logo  
+        img.shadow-icon(data-src="#{os}-logo")
+    if os != 'linux'
+      .download
+        .btn#download-now 
+          img.shadow-icon(data-src="download-arrow")
+          | Download
+        .blurb#docker #{details.dockerURL.split("/").pop()} - #{details.dockerSize}mb<br/>Require Docker Native
+        .blurb#vBox   #{details.vBoxURL.split("/").pop()} - #{details.vBoxSize}mb<br/>Require Docker Native
+  
+  .linux-instructions 
+    .main Download the following binaries and add them to your path:
+    .item wget https://s3.amazonaws.com/tools.nanobox.io/nanobox/v1/linux/amd64/nanobox
+    .item wget https://s3.amazonaws.com/tools.nanobox.io/nanobox/v1/linux/amd64/nanobox-update

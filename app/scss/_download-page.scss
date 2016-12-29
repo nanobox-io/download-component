@@ -1,0 +1,79 @@
+.download-cli            {display:flex; color: #B8BEC1; font-style: italic; font-weight:$semibold; font-size:16px; max-width: 730px; margin:0 auto; justify-content: space-between; margin-top:100px; align-items: flex-start;
+  $blu : #22BAFD;
+  // Left Nav
+  .download-left         {display:flex; flex-direction:column;
+    .download-kinds      {display:flex; flex-direction:column;
+      .kind              {display: flex; margin-bottom:40px;
+        .lexi-ui         {margin:4px 15px 0 0; }
+        .info            {width:258px;
+          .title         {color:#637D8C; font-size:22px; border-bottom:solid 1px #C8DCE8; padding-bottom:6px; margin-bottom:10px; cursor: pointer;}
+          .blurb         {font-size:18px; }
+        }
+      }
+    }
+    .os-menu             {display:flex; padding-top:25px; margin-left:33px; border-top:solid 1px #C8DCE8;
+      .os                {padding:0 15px; cursor:pointer;
+        &.active         {color:$blu; }
+        &:first-of-type  {padding-left:0; }
+        &:hover          {color:$blu; }
+      }
+    }
+  }
+
+  // Right
+  .download-right        {display: flex; align-items: flex-start;
+    .icon                {position:relative;
+      .box-shadow        {fill:#D4E0EB}
+      .logo              {margin-top:-50px;
+        svg              {position: absolute; margin:auto; left: 0; right: 0; top:0; bottom:0;
+          &#windows-logo {transform: translateY(5px);}
+        }
+      }
+    }
+    .download            {display: flex; flex-direction: column; margin:55px 0 0 25px; align-items: flex-start; max-width:192px;
+      .btn               {display:inline-flex; height:50px; background:$blu; align-items: center; padding:0 25px; color:white; font-size:17px; text-transform: uppercase; font-style:normal; font-weight: bold; letter-spacing: 0.06em; cursor:pointer; margin-bottom:17px;
+        svg              {margin-right:20px}
+        &:hover          {background:white; color:$blu;
+          svg *          {stroke:$blu;}
+        }
+      }
+      .blurb             {display:none; white-space: nowrap;}
+    }
+  }
+
+  // ------------------------------------ Docker / Vbox
+  &.docker{ .blurb#docker{display: initial;} }
+  &.vBox{ .blurb#vBox{display: initial;} }
+
+  // ------------------------------------ Linux
+
+  .linux-instructions    {display:none; top:180px; position:absolute; background:rgba(white, 0.95); z-index: 1; font-weight: bold; padding:10px 20px; box-shadow: 0 2px 3px 1px rgba(#000, 0.1); color:#099ce0; border:solid; left: 50%; transform: translateX(-50%);
+    .main                {font-style:italic; color:#9EAFB5; border-bottom: solid 1px #E4EBED; padding-bottom:7px; margin-bottom:7px;  }
+    .item                {font-family:$code; font-size:14px; font-weight:bold; margin:3px 0; white-space: nowrap; @include selectable; }
+  }
+  &.is-linux             {position: relative;
+    .linux-instructions  {display:initial; }
+    .download-right      {
+      .icon              {position:absolute; margin:0 auto; left: 0; right: 0; width:153px;
+        .box-shadow      {display: none; }
+      }
+    }
+    .download-right      {width:0;
+      .download          {display:none; }
+    }
+    .download-left       {width:100%; display:initial;
+      .download-kinds    {display: none; }
+      .os-menu           {position: absolute; margin:0 auto; left: 0; right: 0; top:320px; }
+    }
+  }
+}
+
+// ------------------------------------ Specific only to the dashboard
+
+.download-cli            {color:#97AAB8;
+  .download-right        {
+    .icon                {
+      .box-shadow        {fill:#D4E0EB}
+    }
+  }
+}

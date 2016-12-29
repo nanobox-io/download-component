@@ -1,0 +1,15 @@
+.os-box         {position: relative; display: inline-block;
+  .logo         {position: absolute; width:40px; margin:0 auto; left: 0; right: 0; top: 50%; transform: translateY(-50%); }
+  .box          {
+    .box-shadow {fill:#D4E0EB; transform: translateY(-22px) scale(0.93); transform-origin: center;}
+  }
+  &.big         {
+    .logo       {width:40px; margin-top:-25px;
+      &.linux   {width:60px; }
+      &.windows {margin-top:-20px; width:60px; }
+    }
+  }
+  &.small       {
+    .logo       {width:14px; margin-top:-1px; }
+  }
+}

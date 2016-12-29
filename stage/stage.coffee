@@ -9,3 +9,11 @@ app.detectOs() # Returns : "windows", "apple", "linux" or "Unknown OS"
 
 # Example of instantiating the download ui
 app.build $(".holder"), userInitiatedDownloadCb
+
+# ------------------------------------ Creating OS specific download images
+
+# Building the main download imge
+app.getOsBox( $(".os-box") )
+
+# Building the small download image
+app.getOsBox( $(".small-os-box"), true )

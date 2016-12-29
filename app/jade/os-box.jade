@@ -1,0 +1,9 @@
+.os-box(class=isSmall? "small" : "big" )
+  .logo(class="#{os}")
+    img.shadow-icon(data-src="#{os}-logo" scalable='true')
+  .box
+    if isSmall
+      img.shadow-icon(data-src="small-download")
+    else
+      img.shadow-icon(data-src="blok")
+    

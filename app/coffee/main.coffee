@@ -1,12 +1,14 @@
 downloadPage = require 'jade/download-page'
+osBox        = require 'jade/os-box'
 
 class Download
 
   constructor: ->
+    @detectOs()
 
   build : (@$el, @onDownloadCb=->)->
     @initOsData()
-    @switchOs @detectOs()
+    @switchOs @os
 
   addEventListeners : () ->
     $("#download-now", @$node).on 'click', (e)=> @downloadNow()
@@ -44,11 +46,12 @@ class Download
     window.location = @osData[@os]["#{kind}URL"]
 
   detectOs : () ->
-    os = "Unknown OS"
-    if      ( navigator.appVersion.indexOf("Win")   !=-1 ) then os = "windows"
-    else if ( navigator.appVersion.indexOf("Mac")   !=-1 ) then os = "apple"
-    else if ( navigator.appVersion.indexOf("X11")   !=-1 ) then os = "linux"
-    else if ( navigator.appVersion.indexOf("Linux") !=-1 ) then os = "linux"
+    @os = "Unknown OS"
+    if      ( navigator.appVersion.indexOf("Win")   !=-1 ) then @os = "windows"
+    else if ( navigator.appVersion.indexOf("Mac")   !=-1 ) then @os = "apple"
+    else if ( navigator.appVersion.indexOf("X11")   !=-1 ) then @os = "linux"
+    else if ( navigator.appVersion.indexOf("Linux") !=-1 ) then @os = "linux"
+    @os = 'linux'
 
   initOsData : () ->
     @osData =
@@ -62,6 +65,12 @@ class Download
         vBoxURL    : "https://s3.amazonaws.com/tools.nanobox.io/installers/v1/windows/NanoboxSetup.exe"
         dockerSize : 137
         vBoxSize   : 137
+
+  getOsBox : ($el, isSmall) ->
+    $osBox = $ osBox( {isSmall:isSmall, os:@os} )
+    castShadows $osBox
+    $el.append $osBox
+
 
 window.nanobox ||= {}
 nanobox.Download = Download

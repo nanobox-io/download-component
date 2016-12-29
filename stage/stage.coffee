@@ -13,7 +13,7 @@ app.build $(".holder"), userInitiatedDownloadCb
 # ------------------------------------ Creating OS specific download images
 
 # Building the main download imge
-app.getOsBox( $(".os-box") )
+# app.getOsBox( $(".os-box") )
 
 # Building the small download image
-app.getOsBox( $(".small-os-box"), true )
+# app.getOsBox( $(".small-os-box"), true )

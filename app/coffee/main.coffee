@@ -51,7 +51,6 @@ class Download
     else if ( navigator.appVersion.indexOf("Mac")   !=-1 ) then @os = "apple"
     else if ( navigator.appVersion.indexOf("X11")   !=-1 ) then @os = "linux"
     else if ( navigator.appVersion.indexOf("Linux") !=-1 ) then @os = "linux"
-    @os = 'linux'
 
   initOsData : () ->
     @osData =

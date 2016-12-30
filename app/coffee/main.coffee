@@ -21,6 +21,7 @@ class Download
       $input.trigger 'click'
       @$node.removeClass 'docker vBox'
       @$node.addClass $input.val()
+    $("#go-back").on 'click', ()-> history.back()
 
   switchOs : (@os) ->
     if @$node? then @$node.remove()
@@ -55,13 +56,13 @@ class Download
   initOsData : () ->
     @osData =
       apple :
-        dockerURL  : "https://s3.amazonaws.com/tools.nanobox.io/installers/v1/mac/Nanobox.pkg"
-        vBoxURL    : "https://s3.amazonaws.com/tools.nanobox.io/installers/v1/mac/Nanobox.pkg"
+        dockerURL  : "http://d1ormdui8qdvue.cloudfront.net/installers/v2/mac/Nanobox.pkg"
+        vBoxURL    : "http://d1ormdui8qdvue.cloudfront.net/installers/v2/mac/NanoboxBundle.pkg"
         dockerSize : 137
         vBoxSize   : 130
       windows :
-        dockerURL  : "https://s3.amazonaws.com/tools.nanobox.io/installers/v1/windows/NanoboxSetup.exe"
-        vBoxURL    : "https://s3.amazonaws.com/tools.nanobox.io/installers/v1/windows/NanoboxSetup.exe"
+        dockerURL  : "http://d1ormdui8qdvue.cloudfront.net/installers/v2/windows/NanoboxSetup.exe"
+        vBoxURL    : "http://d1ormdui8qdvue.cloudfront.net/installers/v2/windows/NanoboxBundleSetup.exe"
         dockerSize : 137
         vBoxSize   : 137
 

@@ -1,5 +1,16 @@
-.download-cli            {display:flex; color: #B8BEC1; font-style: italic; font-weight:$semibold; font-size:16px; width: 730px; margin:0 auto; justify-content: space-between; margin-top:60px; align-items: flex-start;
+.download-cli            {display:flex; color: #B8BEC1; font-style: italic; font-weight:$semibold; font-size:16px; width: 730px; margin:0 auto; justify-content: space-between; margin-top:60px; align-items: flex-start; position: relative;
   $blu : #22BAFD;
+
+  // Back button
+  #go-back               {display: flex; position: absolute; right:7px;  top:-40px; align-items: center; cursor:pointer;
+    .txt                 {margin-left:7px; color:#b6c9d8; }
+    svg                  {margin-top:-1px;}
+    &:hover              {
+      .txt               {color:#6C8AA2;}
+      svg *              {stroke:#6C8AA2;}
+    }
+  }
+
   // Left Nav
   .download-left         {display:flex; flex-direction:column;
     .download-kinds      {display:flex; flex-direction:column;

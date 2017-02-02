@@ -1,20 +1,21 @@
-.download-cli.docker
+.download-cli.vBox
   #go-back 
     img.shadow-icon(data-src="jump-arrow")
     .txt Back
 
   .download-left
-    .download-kinds.lexi
-      .kind(data-kind="docker")
-        input(value="docker" type="radio" name="downloads" checked='true')
-        .info
-          .title Use Docker Native
-          .blurb Requires you to install <br/><a href="https://www.docker.com/products/docker" target="_blank"> Docker Native</a>
-      .kind(data-kind="virtualBox")
-        input(value="vBox" type="radio" name="downloads")
-        .info
-          .title Use Virtual Box
-          .blurb Only install Nanobox, we install Virtual Box automatically
+    if os != 'linux'
+      .download-kinds.lexi
+        .kind(data-kind="virtualBox")
+          input(value="vBox" type="radio" name="downloads" checked='true')
+          .info
+            .title Use Virtual Box
+            .blurb= details.virtualBxMsg.main
+        .kind(data-kind="docker")
+          input(value="docker" type="radio" name="downloads")
+          .info
+            .title Use Docker Native
+            .blurb!= details.dockerMsg.main
     .os-menu
       .os.apple(data-id="apple") Mac
       .os.windows(data-id="windows") Windows
@@ -30,10 +31,18 @@
         .btn#download-now 
           img.shadow-icon(data-src="download-arrow")
           | Download
-        .blurb#docker #{details.dockerURL.split("/").pop()} - #{details.dockerSize}mb<br/>Requires Docker Native
-        .blurb#vBox   #{details.vBoxURL.split("/").pop()} - #{details.vBoxSize}mb
+        .blurb#docker!= details.dockerMsg.sub
+        .blurb#vBox!= details.virtualBxMsg.sub
   
-  .linux-instructions 
-    .main Download the following binaries and add them to your path:
-    .item wget https://s3.amazonaws.com/tools.nanobox.io/nanobox/v1/linux/amd64/nanobox
-    .item wget https://s3.amazonaws.com/tools.nanobox.io/nanobox/v1/linux/amd64/nanobox-update
+  .linux-instructions.lexi
+    label Pick a flavor :
+    select#linux-flavor
+      option(value="deb") .deb (Debian / Ubuntu)
+      option(value="rpm") .rpm (Fedora / CentOs / Redhat)
+      option(value="pac") pacman (ArchLinux)
+      option(value="tar") .tar (General)
+    
+    .download  
+      .btn#download-now 
+        img.shadow-icon(data-src="download-arrow")
+        | Download

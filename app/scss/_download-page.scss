@@ -1,4 +1,4 @@
-.download-cli            {display:flex; color: #B8BEC1; font-style: italic; font-weight:$semibold; font-size:16px; width: 730px; margin:0 auto; justify-content: space-between; margin-top:60px; align-items: flex-start; position: relative;
+.download-cli            {display:flex; color: #B8BEC1; font-style: italic; font-weight:$semibold; font-size:16px; width: 780px; margin:0 auto; justify-content: space-between; margin-top:60px; align-items: flex-start; position: relative;
   $blu : #22BAFD;
 
   // Back button
@@ -18,7 +18,7 @@
         .lexi-ui         {margin:4px 15px 0 0; }
         .info            {width:258px;
           .title         {color:#637D8C; font-size:22px; border-bottom:solid 1px #C8DCE8; padding-bottom:6px; margin-bottom:10px; cursor: pointer;}
-          .blurb         {font-size:18px; }
+          .blurb         {font-size:16px; }
         }
       }
     }
@@ -58,24 +58,35 @@
 
   // ------------------------------------ Linux
 
-  .linux-instructions    {display:none; top:180px; position:absolute; background:rgba(white, 0.95); z-index: 1; font-weight: bold; padding:10px 20px; box-shadow: 0 2px 3px 1px rgba(#000, 0.1); color:#099ce0; border:solid; left: 50%; transform: translateX(-50%);
+  .linux-instructions    {display:none; top:180px; position:absolute;  font-weight: bold; padding:10px 20px;  left: 50%; transform: translateX(-50%);
     .main                {font-style:italic; color:#9EAFB5; border-bottom: solid 1px #E4EBED; padding-bottom:7px; margin-bottom:7px;  }
     .item                {font-family:$code; font-size:14px; font-weight:bold; margin:3px 0; white-space: nowrap; @include selectable; }
   }
   &.is-linux             {position: relative;
-    .linux-instructions  {display:initial; }
+    .download            {margin: 0 30px;}
+    .linux-instructions  {display:flex; align-items: center;
+      label              {white-space: nowrap; color : #97aab8; margin-right:15px; }
+    }
     .download-right      {
       .icon              {position:absolute; margin:0 auto; left: 0; right: 0; width:153px;
         .box-shadow      {display: none; }
       }
     }
-    .download-right      {width:0;
-      .download          {display:none; }
-    }
     .download-left       {width:100%; display:initial;
       .download-kinds    {display: none; }
       .os-menu           {position: absolute; margin:0 auto; left: 0; right: 0; top:320px; }
     }
+  }
+
+
+  .download            {display: flex; flex-direction: column; margin:55px 0 0 25px; align-items: flex-start; max-width:192px;
+    .btn               {display:inline-flex; height:50px; background:$blu; align-items: center; padding:0 25px; color:white; font-size:17px; text-transform: uppercase; font-style:normal; font-weight: bold; letter-spacing: 0.06em; cursor:pointer; margin-bottom:17px;
+      svg              {margin-right:20px}
+      &:hover          {background:white; color:$blu;
+        svg *          {stroke:$blu;}
+      }
+    }
+    .blurb             {display:none; white-space: nowrap;}
   }
 }
 

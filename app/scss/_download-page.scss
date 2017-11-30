@@ -32,7 +32,7 @@
   }
 
   // Right
-  .download-right        {display: flex; align-items: flex-start;
+  .download-right        {display: flex; align-items: flex-start; position: relative;
     .icon                {position:relative;
       .box-shadow        {fill:#D4E0EB}
       .logo              {margin-top:-50px;
@@ -49,6 +49,9 @@
         }
       }
       .blurb             {display:none; white-space: nowrap;}
+    }
+    .warning             {position: absolute; bottom:-210px; background: white; padding:20px;
+      .h1                {margin-bottom:10px; font-weight: $bold; color:#FA2A5C; text-align: center; font-size:18px;}
     }
   }
 

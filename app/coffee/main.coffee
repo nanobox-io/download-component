@@ -78,7 +78,7 @@ class Download
         vBoxSize     : 137
         dockerMsg    :
           main : "Requires Docker Native.<br/>Note : we see slightly lower performance using Docker Native vs Virtual Box"
-          sub  : "NanoboxSetup.exe - 14mb<br/>Require Docker Native"
+          sub  : "NanoboxSetup.exe - 14mb<br/>Require Docker Nativeulp"
         virtualBxMsg :
           main : "Only install Nanobox, we install Virtual Box automatically"
           sub  : "NanoboxBundleSetup.exe - 95mb"

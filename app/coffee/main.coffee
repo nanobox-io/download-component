@@ -3,12 +3,18 @@ osBox        = require 'jade/os-box'
 
 class Download
 
-  constructor: ->
+  constructor: (@$el, @onDownloadCb=->) ->
+    window.addEventListener 'components.destroy', @destroy
     @detectOs()
+    @build()
 
-  build : (@$el, @onDownloadCb=->)->
+  build : ()->
     @initOsData()
     @switchOs @os
+
+  destroy : () =>
+    @$el.empty()
+    window.removeEventListener 'components.destroy', @destroy
 
   addEventListeners : () ->
     $("#download-now", @$node).on 'click', (e)=> @downloadNow()

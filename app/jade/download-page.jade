@@ -22,6 +22,7 @@
       .os.linux(data-id="linux") Linux
   
   .download-right
+    
     .icon
       img.shadow-icon(data-src="blok")
       .logo  
@@ -33,10 +34,15 @@
           | Download
         .blurb#docker!= details.dockerMsg.sub
         .blurb#vBox!= details.virtualBxMsg.sub
+        .licenses By downloading, you agree to the terms and conditions of the respective licenses. You can view them <a href="#">here</a>.
     if os == 'apple'
       .warning 
         .h1 Important Notice!
         .txt High Sierra has introduced a few issues that break nanobox. <br/><br/>These can easily be resolved. After download, <a target="_BLANK" href="https://content.nanobox.io/installing-nanobox-on-macos-high-sierra/">follow these instructions</a> to fix the problem. 
+    if os == 'windows'
+      .warning 
+        .h1 Important Notice!
+        .txt We are replacing our windows certificate.
         
   .linux-instructions.lexi
     label Pick a flavor :
